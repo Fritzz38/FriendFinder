@@ -18,7 +18,7 @@ var friendsData = [
 	},
 	{
 	  "name":"Goofy",
-	  "photo":"https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Goofy.svg/1200px-Goofy.svg.png",
+	  "photo":"https://pbs.twimg.com/profile_images/716688348031623170/Nw0sPiNp.jpg",
 	  "scores":[
 	      3,
 	      4,
@@ -31,9 +31,56 @@ var friendsData = [
 	      2,
 	      1
 	    ] 
+	},
+	{
+	  "name":"Olaf",
+	  "photo":"https://vignette4.wikia.nocookie.net/disney/images/3/38/Olaf_DI_Render.png",
+	  "scores":[
+	      2,
+	      3,
+	      5,
+	      4,
+	      3,
+	      1,
+	      3,
+	      5,
+	      3,
+	      2
+	    ] 
+	},
+	{
+	  "name":"Moana",
+	  "photo":"https://pbs.twimg.com/profile_images/819955513718779905/DY4UfMVj_400x400.jpg",
+	  "scores":[
+	      5,
+	      4,
+	      2,
+	      4,
+	      1,
+	      3,
+	      4,
+	      2,
+	      3,
+	      3
+	    ] 
+	},
+	{
+	  "name":"Sloth",
+	  "photo":"https://vignette2.wikia.nocookie.net/zootopia/images/3/3e/Flash_Zootopia.png",
+	  "scores":[
+	      2,
+	      1,
+	      2,
+	      3,
+	      5,
+	      2,
+	      3,
+	      1,
+	      2,
+	      3
+	    ] 
 	}
 
 ];
-
 
 module.exports = friendsData;

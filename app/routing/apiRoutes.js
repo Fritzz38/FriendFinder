@@ -1,7 +1,6 @@
 
 var friendsData = require("../data/friend");
 
-
 // ===============================================================================
 // ROUTING
 // ===============================================================================
@@ -14,40 +13,45 @@ module.exports = function(app) {
     });
 
 
-
 // A POST routes /api/friends. This will be used to handle incoming survey results. 
 // This route will also be used to handle the compatibility logic.
 	app.post("/api/friends", function(req, res){
 
-		//friendsData.push(req.body);
 		var totalDifference = 0;
 		var diffArray = [];
 		var userData = req.body.scores;
-		
-		for (var i = 0; i < friendsData.length; i++) {			
+		console.log("New User Scores: " + userData)
+				
+		for (var i = 0; i < friendsData.length; i++) {	
 
-			for(var j = 0; j < userData.length; j++) {
+            console.log(friendsData[i]);
+            var scoresArr = friendsData[i].scores;
+            totalDifference = 0;
+
+			for(var j = 0; j < scoresArr.length; j++) {
 			
-				totalDifference += Math.abs(parseInt(userData[j]) - parseInt(friendsData[i].scores[j]));
+				totalDifference += Math.abs( userData[j] - friendsData[i].scores[j] );
 								
-				diffArray.push(totalDifference);
 			}
+
+			diffArray.push(totalDifference);
+			
 		}
 
-				console.log("kamuuuu " + diffArray);
-
-				var minimum = Math.min.apply(null, diffArray);
-
-				var matchIndex = diffArray.indexOf(minimum);
-        
-                var bestMatch = friendsData[matchIndex];
-        
-                res.send(bestMatch);
+			console.log("total Difference Array: " + diffArray);
 				
+			var leastDiff = Math.min.apply(null, diffArray);
+
+			var matchIndex = diffArray.indexOf(leastDiff);
+        
+            var bestMatch = friendsData[matchIndex];
+
+            console.log("Your Best Match Friend: " + bestMatch.name);
+        
+            res.send(bestMatch);
+
+			friendsData.push(req.body);	
 			
 	});
-
-
-
 
 };
